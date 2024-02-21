@@ -1,6 +1,8 @@
 # Armbot
 Armbot Repository, contains ROS workspace and other code.
 
+Current Contributors are Jacob, Shreeya, and Kevin
+
 
 ## Installation
 1. Make the Ros2 Humble workspace (Install ROS2 first)
