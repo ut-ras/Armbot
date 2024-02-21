@@ -19,3 +19,11 @@ git clone https://github.com/ut-ras/Armbot.git
 cd ~/armbot_ws
 colcon build
 ```
+
+## Folder Explanation
+- **armbot_description**: Contains the URDF and meshes for the robot
+- **armbot_gazebo**: Contains the gazebo world and launch files
+- **armbot_control**: Contains the control code for the robot
+- **armbot_moveit**: Contains the moveit configuration for the robot
+- **armbot_bringup**: Contains the launch files to bring up the robot
+- **armbot_msgs**: Contains the custom messages/services for the robot
