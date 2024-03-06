@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="simple_arm">
+    <xacro:include filename="$(find your_package_name)/urdf/actuator_joint.xacro"/>
+    <xacro:include filename="$(find your_package_name)/urdf/link_2040_extrusion.xacro"/>
+
+    <xacro:link_2040_extrusion name="base_link" length="0.1"/>
+    <xacro:link_2040_extrusion name="mid_link" length="0.2"/>
+    <xacro:link_2040_extrusion name="end_link" length="0.2"/>
+
+    <xacro:actuator_joint name="joint1" parent="base_link" child="mid_link"/>
+    <xacro:actuator_joint name="joint2" parent="mid_link" child="end_link"/>
+</robot>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="link_2040_extrusion" params="name length">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                    <box size="0.02 0.04 ${length}"/>
+                </geometry>
+                <material name="aluminum">
+                    <color rgba="0.8 0.8 0.8 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.02 0.04 ${length}"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.2"/> <!-- Approximate mass; adjust based on actual weight -->
+                <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+                <!-- Inertia tensor values should be calculated based on the actual dimensions and mass distribution -->
+            </inertial>
+        </link>
+    </xacro:macro>
+</robot>
