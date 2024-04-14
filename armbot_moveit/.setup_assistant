@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: armbot_description
+    relative_path: onshape_to_robot/armbot/robot.urdf
+  srdf:
+    relative_path: config/armbot.srdf
+  package_settings:
+    author_name: Jake T.
+    author_email: jake.tomczeszyn@gmail.com
+    generated_timestamp: 1713066682
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

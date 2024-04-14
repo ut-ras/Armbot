@@ -50,7 +50,7 @@
 <parent link="base_link" />
 <child link="2040_t-slot_(1ft)" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -358,7 +358,7 @@
 <parent link="dc14_a01_ref" />
 <child link="dc11_a01_horn_ref_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-50.265482457436689856" upper="50.265482457436689856"/>
+<limit effort="1" velocity="20.0" lower="-50.265482457436689856" upper="50.265482457436689856"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -367,7 +367,7 @@
 <parent link="dc11_a01_horn_ref" />
 <child link="dc14_a01_ref" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-3.141592653589793116" upper="1.570796326794896558"/>
+<limit effort="1" velocity="20.0" lower="-3.141592653589793116" upper="1.570796326794896558"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -376,7 +376,7 @@
 <parent link="dynamount2020" />
 <child link="dc11_a01_horn_ref" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -385,7 +385,7 @@
 <parent link="2020_t-slot_(1ft)" />
 <child link="dynamount2020" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -394,7 +394,7 @@
 <parent link="hebirotor2020" />
 <child link="2020_t-slot_(1ft)" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -403,7 +403,7 @@
 <parent link="hebi_rotor_disc__2" />
 <child link="hebirotor2020" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -412,7 +412,7 @@
 <parent link="hebi_stator__2" />
 <child link="hebi_rotor_disc__2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-2.356194490192344837" upper="2.356194490192344837"/>
+<limit effort="1" velocity="20.0" lower="-2.356194490192344837" upper="2.356194490192344837"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -421,7 +421,7 @@
 <parent link="hebistatorrightangle2040" />
 <child link="hebi_stator__2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -430,7 +430,7 @@
 <parent link="2040_t-slot_(1ft)_2" />
 <child link="hebistatorrightangle2040" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -439,7 +439,7 @@
 <parent link="hebistatornormal2040" />
 <child link="2040_t-slot_(1ft)_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -448,7 +448,7 @@
 <parent link="hebi_stator_" />
 <child link="hebistatornormal2040" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -457,7 +457,7 @@
 <parent link="hebi_rotor_disc_" />
 <child link="hebi_stator_" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-6.283185307179586232" upper="6.283185307179586232"/>
+<limit effort="1" velocity="20.0" lower="-6.283185307179586232" upper="6.283185307179586232"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -466,7 +466,7 @@
 <parent link="base_link" />
 <child link="hebi_rotor_disc_" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -498,7 +498,7 @@
 <parent link="base_link" />
 <child link="2020_t-slot_(1ft)_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -530,7 +530,7 @@
 <parent link="base_link" />
 <child link="2020_t-slot_(1ft)_3" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -562,7 +562,7 @@
 <parent link="base_link" />
 <child link="2040_t-slot_(1ft)_3" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="1" velocity="20.0" />
 <joint_properties friction="0.0"/>
 </joint>
 

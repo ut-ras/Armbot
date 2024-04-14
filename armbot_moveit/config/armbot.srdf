@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="armbot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="fourDOF_ARM_Chain">
+        <link name="base_link"/>
+        <link name="2040_t-slot_(1ft)"/>
+        <link name="2020_t-slot_(1ft)_2"/>
+        <link name="2020_t-slot_(1ft)_3"/>
+        <link name="2040_t-slot_(1ft)_3"/>
+        <link name="hebi_rotor_disc_"/>
+        <link name="hebi_stator_"/>
+        <link name="hebistatornormal2040"/>
+        <link name="2040_t-slot_(1ft)_2"/>
+        <link name="hebistatorrightangle2040"/>
+        <link name="hebi_stator__2"/>
+        <link name="hebi_rotor_disc__2"/>
+        <link name="hebirotor2020"/>
+        <link name="2020_t-slot_(1ft)"/>
+        <link name="dynamount2020"/>
+        <link name="dc11_a01_horn_ref"/>
+        <link name="dc14_a01_ref"/>
+        <link name="dc11_a01_horn_ref_2"/>
+        <joint name="2020_To_HebiRotor2020"/>
+        <joint name="2040_To_HebiStatorNormal"/>
+        <joint name="Base2040_To_Base_HebiRotor2020"/>
+        <joint name="Base_HebiRotor2020_Base2020"/>
+        <joint name="Base_HebiRotor2020_Base2020_2"/>
+        <joint name="Base_HebiRotor2020_Base2040_2"/>
+        <joint name="DynaMount_To_2020"/>
+        <joint name="DynaRotor_To_Dynamixel_J2"/>
+        <joint name="DynaRotor_To_Dynamixel_J3"/>
+        <joint name="DynaRotor_to_DynaMount"/>
+        <joint name="HebiRotor2020_To_HebiBase"/>
+        <joint name="HebiRotor2020_to_J1_Hebi"/>
+        <joint name="HebiStatorRightAngle_To_2040"/>
+        <joint name="Hebi_Base_Stator_To_HebiStatorNormal"/>
+        <joint name="Hebi_J1_Stator_To_HebiStatorRightAngle"/>
+        <joint name="Hebi_Rotor_Base"/>
+        <joint name="Hebi_Rotor_J1"/>
+        <chain base_link="base_link" tip_link="dc11_a01_horn_ref_2"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="Home" group="fourDOF_ARM_Chain">
+        <joint name="DynaRotor_To_Dynamixel_J2" value="0"/>
+        <joint name="DynaRotor_To_Dynamixel_J3" value="0"/>
+        <joint name="Hebi_Rotor_Base" value="0"/>
+        <joint name="Hebi_Rotor_J1" value="0"/>
+    </group_state>
+    <group_state name="Down" group="fourDOF_ARM_Chain">
+        <joint name="DynaRotor_To_Dynamixel_J2" value="0.7897"/>
+        <joint name="DynaRotor_To_Dynamixel_J3" value="8"/>
+        <joint name="Hebi_Rotor_Base" value="2.2564"/>
+        <joint name="Hebi_Rotor_J1" value="1.8614"/>
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="armbot_joint" type="fixed" parent_frame="armbot_link" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="2020_t-slot_(1ft)_2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="2020_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="2040_t-slot_(1ft)" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="2040_t-slot_(1ft)_2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="2040_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="base_link" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="dc14_a01_ref" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="dynamount2020" reason="Adjacent"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebirotor2020" reason="Adjacent"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="2020_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="2040_t-slot_(1ft)" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="2040_t-slot_(1ft)_2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="2040_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_2" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="2040_t-slot_(1ft)" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="2040_t-slot_(1ft)_2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="2040_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="2020_t-slot_(1ft)_3" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="2040_t-slot_(1ft)_2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="2040_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="2040_t-slot_(1ft)_3" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="base_link" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="dc14_a01_ref" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebistatornormal2040" reason="Adjacent"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_2" link2="hebistatorrightangle2040" reason="Adjacent"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="dc14_a01_ref" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="2040_t-slot_(1ft)_3" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="base_link" link2="dc11_a01_horn_ref" reason="Never"/>
+    <disable_collisions link1="base_link" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="dc14_a01_ref" reason="Never"/>
+    <disable_collisions link1="base_link" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebi_rotor_disc_" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="base_link" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="dc11_a01_horn_ref_2" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="dc14_a01_ref" reason="Adjacent"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="dynamount2020" reason="Adjacent"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="dc14_a01_ref" reason="Adjacent"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="dc11_a01_horn_ref_2" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="dynamount2020" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="dc14_a01_ref" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebi_rotor_disc_" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="dynamount2020" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebi_rotor_disc__2" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebi_stator_" reason="Adjacent"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc_" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc__2" link2="hebi_stator_" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc__2" link2="hebi_stator__2" reason="Adjacent"/>
+    <disable_collisions link1="hebi_rotor_disc__2" link2="hebirotor2020" reason="Adjacent"/>
+    <disable_collisions link1="hebi_rotor_disc__2" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="hebi_rotor_disc__2" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="hebi_stator_" link2="hebi_stator__2" reason="Never"/>
+    <disable_collisions link1="hebi_stator_" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="hebi_stator_" link2="hebistatornormal2040" reason="Adjacent"/>
+    <disable_collisions link1="hebi_stator_" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="hebi_stator__2" link2="hebirotor2020" reason="Never"/>
+    <disable_collisions link1="hebi_stator__2" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="hebi_stator__2" link2="hebistatorrightangle2040" reason="Adjacent"/>
+    <disable_collisions link1="hebirotor2020" link2="hebistatornormal2040" reason="Never"/>
+    <disable_collisions link1="hebirotor2020" link2="hebistatorrightangle2040" reason="Never"/>
+    <disable_collisions link1="hebistatornormal2040" link2="hebistatorrightangle2040" reason="Never"/>
+</robot>

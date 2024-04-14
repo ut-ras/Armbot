@@ -1,0 +1,7 @@
+# Default initial positions for armbot's ros2_control fake system
+
+initial_positions:
+  DynaRotor_To_Dynamixel_J2: 0
+  DynaRotor_To_Dynamixel_J3: 0
+  Hebi_Rotor_Base: 0
+  Hebi_Rotor_J1: 0

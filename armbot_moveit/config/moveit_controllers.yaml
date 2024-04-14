@@ -1,0 +1,19 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - fourDOF_ARM_Chain_controller
+
+  fourDOF_ARM_Chain_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - Hebi_Rotor_Base
+      - Hebi_Rotor_J1
+      - DynaRotor_To_Dynamixel_J2
+      - DynaRotor_To_Dynamixel_J3
+    action_ns: follow_joint_trajectory
+    default: true
