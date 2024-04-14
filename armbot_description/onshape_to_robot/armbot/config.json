@@ -1,0 +1,10 @@
+{
+    "documentId": "95705e3236fb71c9f0e3c55b",
+    "onshape_api": "https://cad.onshape.com",
+    "onshape_access_key": "RdfcgEMZHLNaM3uhh1zDerpG",
+    "onshape_secret_key": "BJBwFeLUDImjF0QhgxP0gQ2AovB9oEtxd7fXDJ7hVGkPNLjk",
+    "outputFormat": "sdf",
+    "robotName": "armbot",
+    "packageName": "armbot_description/onshape_to_robot/armbot/",
+    "simplifySTLs": "all"
+}

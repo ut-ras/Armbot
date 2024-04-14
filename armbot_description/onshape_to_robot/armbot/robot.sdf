@@ -1,0 +1,571 @@
+<sdf version="1.6">
+<model name="armbot">
+<link name="base_link">
+<frame name="base_link_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="base_link_0_hebirotor2020_visual">
+<pose>-1.4954010252310467877e-12 0.062950280607105862929 -0.014800447380542768733 -3.141592653589793116 6.1629758220391415926e-32 1.3684555315672011322e-48</pose>
+<geometry>
+<mesh><uri>file://hebirotor2020.stl</uri></mesh>
+</geometry>
+<material><ambient>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</ambient><diffuse>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="base_link_0_hebirotor2020_visual">
+<pose>-1.4954010252310467877e-12 0.062950280607105862929 -0.014800447380542768733 -3.141592653589793116 6.1629758220391415926e-32 1.3684555315672011322e-48</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="base_link_frame">1.471073017230224444e-06 0.062950447604268128243 -0.024329139199410744487 0 0 0</pose>
+<mass>0.10897536745364015676</mass>
+<inertia><ixx>2.0995325698152185787e-05</ixx><ixy>7.161065988428246499e-10</ixy><ixz>-5.0057125776953910516e-10</ixz><iyy>0.00033109911054740619922</iyy><iyz>-5.8223854087903742578e-11</iyz><izz>0.0003490797833931392276</izz></inertia>
+</inertial>
+</link>
+
+<link name="2040_t-slot_(1ft)">
+<frame name="2040_t-slot_(1ft)_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2040_t-slot_(1ft)_0_2040_t-slot_(1ft)_visual">
+<pose>-0.029018909366434194469 0.062950280607105821296 -0.040500447380543092013 -1.570796326794896558 -1.5707963267948961139 0</pose>
+<geometry>
+<mesh><uri>file://2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2040_t-slot_(1ft)_0_2040_t-slot_(1ft)_visual">
+<pose>-0.029018909366434194469 0.062950280607105821296 -0.040500447380543092013 -1.570796326794896558 -1.5707963267948961139 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2040_t-slot_(1ft)_frame">-0.028518281485979575518 0.062950280607105835173 -0.040500447380543071196 0 0 0</pose>
+<mass>0.25219173558876550878</mass>
+<inertia><ixx>0.0019627392288486733216</ixx><ixy>2.2357954006535848664e-19</ixy><ixz>4.4935318686711459992e-19</ixz><iyy>5.1086237781545882535e-05</iyy><iyz>1.0567838541281127762e-19</iyz><izz>0.0019932434921116392104</izz></inertia>
+</inertial>
+</link>
+
+<joint name="Base2040_To_Base_HebiRotor2020" type="fixed">
+<pose>-0.038518909366434213315 0.062950280607105876807 -0.030500447380542996395 1.7347234759768063549e-16 -1.1102230246249800328e-16 1.1102230246371817388e-16</pose>
+<parent>base_link</parent>
+<child>2040_t-slot_(1ft)</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<link name="hebi_rotor_disc_">
+<frame name="hebi_rotor_disc__frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebi_rotor_disc__0_hebi_rotor_disc__visual">
+<pose>-1.4954010252310467877e-12 0.062950280607105862929 0.0015495526194574602008 1.5707963267948970021 -2.2204460492511265937e-16 -2.2204460492878865258e-16</pose>
+<geometry>
+<mesh><uri>file://hebi_rotor_disc_.stl</uri></mesh>
+</geometry>
+<material><ambient>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</ambient><diffuse>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebi_rotor_disc__0_hebi_rotor_disc__visual">
+<pose>-1.4954010252310467877e-12 0.062950280607105862929 0.0015495526194574602008 1.5707963267948970021 -2.2204460492511265937e-16 -2.2204460492878865258e-16</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebi_rotor_disc__frame">5.3210720575162595255e-07 0.062962573548964742565 -0.01105963847217954904 0 0 0</pose>
+<mass>0.04989516048000000592</mass>
+<inertia><ixx>1.07173576662662712e-05</ixx><ixy>3.2637328668980822643e-13</ixy><ixz>9.0024786475135115723e-11</ixz><iyy>1.0829283098185203023e-05</iyy><iyz>5.8060078117055848572e-10</iyz><izz>2.1283842582398623794e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebi_stator_">
+<frame name="hebi_stator__frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebi_stator__0_hebi_stator__visual">
+<pose>-1.4953940863371428804e-12 0.062950280607105862929 0.0015495526194573181703 1.5707963267948983344 1.9264273792869010058e-15 1.8318679906314514937e-15</pose>
+<geometry>
+<mesh><uri>file://hebi_stator_.stl</uri></mesh>
+</geometry>
+<material><ambient>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</ambient><diffuse>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebi_stator__0_hebi_stator__visual">
+<pose>-1.4953940863371428804e-12 0.062950280607105862929 0.0015495526194573181703 1.5707963267948983344 1.9264273792869010058e-15 1.8318679906314514937e-15</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebi_stator__frame">0.018552404495652048688 0.06049688322172034477 0.0024470792015108730998 0 0 0</pose>
+<mass>0.29483503919999992648</mass>
+<inertia><ixx>0.00012040144433771506093</ixx><ixy>2.6094887648047700559e-05</ixy><ixz>4.517755071794561311e-06</ixz><iyy>0.00024371596634354384704</iyy><iyz>-5.7552027333034337103e-07</iyz><izz>0.00032527976775372337628</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebistatornormal2040">
+<frame name="hebistatornormal2040_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebistatornormal2040_0_hebistatornormal2040_visual">
+<pose>-0.0098365463847162933758 0.062950280607105862929 0.016549552619457365971 -1.5707963267948992225 1.9264273792869014003e-15 1.8318679906314514937e-15</pose>
+<geometry>
+<mesh><uri>file://hebistatornormal2040.stl</uri></mesh>
+</geometry>
+<material><ambient>0.78823529411764703401 0.011764705882352941013 0.011764705882352941013 1</ambient><diffuse>0.78823529411764703401 0.011764705882352941013 0.011764705882352941013 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebistatornormal2040_0_hebistatornormal2040_visual">
+<pose>-0.0098365463847162933758 0.062950280607105862929 0.016549552619457365971 -1.5707963267948992225 1.9264273792869014003e-15 1.8318679906314514937e-15</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebistatornormal2040.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebistatornormal2040_frame">0.00033814267055101189519 0.062950280472305553126 0.06311610873457988713 0 0 0</pose>
+<mass>0.15651906882669003318</mass>
+<inertia><ixx>0.00020929689747816688041</ixx><ixy>5.8518426895910304462e-11</ixy><ixz>1.7895630898721491951e-06</ixz><iyy>0.00022791049151855613986</iyy><iyz>-6.7009726734340701588e-13</iyz><izz>6.266390998557995072e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="2040_t-slot_(1ft)_2">
+<frame name="2040_t-slot_(1ft)_2_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2040_t-slot_(1ft)_2_0_2040_t-slot_(1ft)_visual">
+<pose>-0.00047689739101589370684 0.062940631613406641809 0.17894955261945677538 -3.1415926535897868987 7.6857623156658274501e-16 1.5707963267948956698</pose>
+<geometry>
+<mesh><uri>file://2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2040_t-slot_(1ft)_2_0_2040_t-slot_(1ft)_visual">
+<pose>-0.00047689739101589370684 0.062940631613406641809 0.17894955261945677538 -3.1415926535897868987 7.6857623156658274501e-16 1.5707963267948956698</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2040_t-slot_(1ft)_2_frame">2.3730489438724701977e-05 0.062940631613406669564 0.17894955261945674763 0 0 0</pose>
+<mass>0.25219173558876550878</mass>
+<inertia><ixx>0.0019627392288486785257</ixx><ixy>-1.8796002694634971977e-18</ixy><ixz>-1.2085588971229104773e-17</ixz><iyy>0.0019932434921116027812</iyy><iyz>-1.4926959040347885266e-18</iyz><izz>5.1086237781544418862e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebistatorrightangle2040">
+<frame name="hebistatorrightangle2040_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebistatorrightangle2040_0_hebistatorrightangle2040_visual">
+<pose>-2.8858539977676757709e-06 0.075165431613406705202 0.17894955261945671987 -3.1415926535897926719 -6.3220621250071017558e-15 3.141592653589788231</pose>
+<geometry>
+<mesh><uri>file://hebistatorrightangle2040.stl</uri></mesh>
+</geometry>
+<material><ambient>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</ambient><diffuse>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebistatorrightangle2040_0_hebistatorrightangle2040_visual">
+<pose>-2.8858539977676757709e-06 0.075165431613406705202 0.17894955261945671987 -3.1415926535897926719 -6.3220621250071017558e-15 3.141592653589788231</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebistatorrightangle2040.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebistatorrightangle2040_frame">-0.0015817821988269868856 0.076429624660878478504 0.17894955261945671987 0 0 0</pose>
+<mass>0.026450088103838233222</mass>
+<inertia><ixx>2.5671961898540001794e-05</ixx><ixy>4.596717726566595938e-10</ixy><ixz>-1.391860320647691942e-19</ixz><iyy>2.9117912025297513785e-05</iyy><iyz>-1.9572253538770518845e-20</iyz><izz>3.6560949231525005876e-06</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebi_stator__2">
+<frame name="hebi_stator__2_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebi_stator__2_0_hebi_stator__visual">
+<pose>0.0019971141460020168205 0.094940631613406836764 0.17894955261945674763 3.1415926535897926719 6.3220621250071025446e-15 -5.0792703376599389223e-15</pose>
+<geometry>
+<mesh><uri>file://hebi_stator_.stl</uri></mesh>
+</geometry>
+<material><ambient>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</ambient><diffuse>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebi_stator__2_0_hebi_stator__visual">
+<pose>0.0019971141460020168205 0.094940631613406836764 0.17894955261945674763 3.1415926535897926719 6.3220621250071025446e-15 -5.0792703376599389223e-15</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebi_stator__2_frame">0.020549518643148828589 0.094043105031353144141 0.17649615523407116702 0 0 0</pose>
+<mass>0.29483503919999992648</mass>
+<inertia><ixx>0.00012040144433770701073</ixx><ixy>-4.5177550717925233498e-06</ixy><ixz>2.6094887648045566036e-05</ixz><iyy>0.00032527976775372337628</iyy><iyz>5.7552027333094264684e-07</iyz><izz>0.00024371596634352850558</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebi_rotor_disc__2">
+<frame name="hebi_rotor_disc__2_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebi_rotor_disc__2_0_hebi_rotor_disc__visual">
+<pose>0.0019971141460020172542 0.094940631613406809008 0.17894955261945677538 -3.1415926535897842342 1.5707963267948947816 0</pose>
+<geometry>
+<mesh><uri>file://hebi_rotor_disc_.stl</uri></mesh>
+</geometry>
+<material><ambient>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</ambient><diffuse>0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebi_rotor_disc__2_0_hebi_rotor_disc__visual">
+<pose>0.0019971141460020172542 0.094940631613406809008 0.17894955261945677538 -3.1415926535897842342 1.5707963267948947816 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebi_rotor_disc__2_frame">0.0020094070878610092133 0.10754982270504366559 0.17894902051075559091 0 0 0</pose>
+<mass>0.04989516048000000592</mass>
+<inertia><ixx>1.0829283098184982795e-05</ixx><ixy>-5.8060078107269495424e-10</ixy><ixz>-3.2637325737402446605e-13</ixz><iyy>2.1283842582398122351e-05</iyy><iyz>9.0024786408206523569e-11</iyz><izz>1.0717357666266176332e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="hebirotor2020">
+<frame name="hebirotor2020_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="hebirotor2020_0_hebirotor2020_visual">
+<pose>0.0019971141423907002796 0.11129063161340682631 0.17894955261796041679 -1.5707963267948876762 1.5707963267948956698 0</pose>
+<geometry>
+<mesh><uri>file://hebirotor2020.stl</uri></mesh>
+</geometry>
+<material><ambient>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</ambient><diffuse>0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="hebirotor2020_0_hebirotor2020_visual">
+<pose>0.0019971141423907002796 0.11129063161340682631 0.17894955261796041679 -1.5707963267948876762 1.5707963267948956698 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="hebirotor2020_frame">0.0019972811395530610037 0.12081932343227466675 0.17894808154344776785 0 0 0</pose>
+<mass>0.10897536745364015676</mass>
+<inertia><ixx>0.00033109911054739871823</ixx><ixy>5.8223854423374943784e-11</ixy><ixz>-7.1610659891940389364e-10</ixz><iyy>0.0003490797833931295782</iyy><iyz>-5.0057125799117346489e-10</iyz><izz>2.0995325698152118025e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="2020_t-slot_(1ft)">
+<frame name="2020_t-slot_(1ft)_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2020_t-slot_(1ft)_0_2020_t-slot_(1ft)_visual">
+<pose>0.0019091199108999220343 0.13699063161340688244 0.28837269329463022238 3.141592653589793116 2.1579279646126705539e-18 1.5707963267948878983</pose>
+<geometry>
+<mesh><uri>file://2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2020_t-slot_(1ft)_0_2020_t-slot_(1ft)_visual">
+<pose>0.0019091199108999220343 0.13699063161340688244 0.28837269329463022238 3.141592653589793116 2.1579279646126705539e-18 1.5707963267948878983</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2020_t-slot_(1ft)_frame">0.0019091199108999098912 0.13699063161340688244 0.28837269329463022238 0 0 0</pose>
+<mass>0.14544346412865538642</mass>
+<inertia><ixx>0.0011319123253517666874</ixx><ixy>-1.0053401003700349943e-18</ixy><ixz>3.0182296455238759572e-19</ixz><iyy>0.0011319123253517653863</iyy><iyz>1.6210887548631123323e-20</iyz><izz>1.1801323089674828812e-05</izz></inertia>
+</inertial>
+</link>
+
+<link name="dynamount2020">
+<frame name="dynamount2020_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="dynamount2020_0_dynamount2020_visual">
+<pose>0.0021590929743359591787 0.1144906316134070845 0.45061598449655643206 -8.9095397726167392419e-15 -1.5707963267948952257 0</pose>
+<geometry>
+<mesh><uri>file://dynamount2020.stl</uri></mesh>
+</geometry>
+<material><ambient>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</ambient><diffuse>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="dynamount2020_0_dynamount2020_visual">
+<pose>0.0021590929743359591787 0.1144906316134070845 0.45061598449655643206 -8.9095397726167392419e-15 -1.5707963267948952257 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/dynamount2020.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="dynamount2020_frame">0.0021785519551103379662 0.12278152102568964943 0.43342390725554102993 0 0 0</pose>
+<mass>0.00656743569264333759</mass>
+<inertia><ixx>1.1208584748380474788e-06</ixx><ixy>3.0603079136605307637e-11</ixy><ixz>7.5996646431153631788e-10</ixz><iyy>1.338396620352668297e-06</iyy><iyz>9.1652725861713724177e-08</iyz><izz>2.8707760317925074084e-07</izz></inertia>
+</inertial>
+</link>
+
+<link name="dc11_a01_horn_ref">
+<frame name="dc11_a01_horn_ref_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="dc11_a01_horn_ref_0_dc11_a01_horn_ref_visual">
+<pose>0.0021590929743359596124 0.1144906316134070845 0.45061598449655643206 -3.1415926535897926719 -1.0122178984033832863e-15 3.1415926535897842342</pose>
+<geometry>
+<mesh><uri>file://dc11_a01_horn_ref.stl</uri></mesh>
+</geometry>
+<material><ambient>0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1</ambient><diffuse>0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="dc11_a01_horn_ref_0_dc11_a01_horn_ref_visual">
+<pose>0.0021590929743359596124 0.1144906316134070845 0.45061598449655643206 -3.1415926535897926719 -1.0122178984033832863e-15 3.1415926535897842342</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="dc11_a01_horn_ref_frame">0.0021594327650144790401 0.11640425902220055687 0.45061598450047324338 0 0 0</pose>
+<mass>0.011339809200000001976</mass>
+<inertia><ixx>3.1759308584662223659e-07</ixx><ixy>-9.2200454309273388809e-11</ixy><ixz>2.0658939142230897529e-23</ixz><iyy>6.0240878644093416683e-07</iyy><iyz>-1.1853576277829420035e-16</iyz><izz>3.1590939815625371744e-07</izz></inertia>
+</inertial>
+</link>
+
+<link name="dc14_a01_ref">
+<frame name="dc14_a01_ref_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="dc14_a01_ref_0_dc14_a01_ref_visual">
+<pose>-0.0098409070256643277341 0.099240631638120774261 0.45061598449655648757 -1.5707963267949018871 -1.570796326794886566 0</pose>
+<geometry>
+<mesh><uri>file://dc14_a01_ref.stl</uri></mesh>
+</geometry>
+<material><ambient>0.22352941176470589313 0.21960784313725489891 0.21960784313725489891 1</ambient><diffuse>0.22352941176470589313 0.21960784313725489891 0.21960784313725489891 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="dc14_a01_ref_0_dc14_a01_ref_visual">
+<pose>-0.0098409070256643277341 0.099240631638120774261 0.45061598449655648757 -1.5707963267949018871 -1.570796326794886566 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/dc14_a01_ref.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="dc14_a01_ref_frame">-0.0098407406846149417246 0.099872021897029011894 0.45124747711146750984 0 0 0</pose>
+<mass>0.43091274960000003347</mass>
+<inertia><ixx>8.3991546790711317213e-05</ixx><ixy>-7.0415392305462032274e-09</ixy><ixz>5.47471095555898945e-09</ixz><iyy>0.0001184155380944046566</iyy><iyz>2.8692028355188701526e-06</iyz><izz>0.00011841540290033495872</izz></inertia>
+</inertial>
+</link>
+
+<link name="dc11_a01_horn_ref_2">
+<frame name="dc11_a01_horn_ref_2_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="dc11_a01_horn_ref_2_0_dc11_a01_horn_ref_visual">
+<pose>-0.021840907025664421659 0.09924063163812096855 0.46611598449655650134 1.5707963267949005548 9.3713895951269011836e-15 1.5707105036825248501</pose>
+<geometry>
+<mesh><uri>file://dc11_a01_horn_ref.stl</uri></mesh>
+</geometry>
+<material><ambient>0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1</ambient><diffuse>0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="dc11_a01_horn_ref_2_0_dc11_a01_horn_ref_visual">
+<pose>-0.021840907025664421659 0.09924063163812096855 0.46611598449655650134 1.5707963267949005548 9.3713895951269011836e-15 1.5707105036825248501</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="dc11_a01_horn_ref_2_frame">-0.021840907058743166264 0.099240291847444067619 0.46802961190534997371 0 0 0</pose>
+<mass>0.011339809200000001976</mass>
+<inertia><ixx>3.1590939816865517976e-07</ixx><ixy>1.4449931708752466598e-13</ixy><ixz>8.0314665614581566826e-15</ixz><iyy>3.1759308583422098603e-07</iyy><iyz>9.2200453964652846245e-11</iyz><izz>6.0240878644093374331e-07</izz></inertia>
+</inertial>
+</link>
+
+<joint name="DynaRotor_To_Dynamixel_J3" type="revolute">
+<pose>-0.021840907025664407781 0.099240631638120996305 0.46961598449655650445 3.8421956588541803115e-15 9.3713895951269011836e-15 1.5707105036825248501</pose>
+<parent>dc14_a01_ref</parent>
+<child>dc11_a01_horn_ref_2</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity><lower>-50.265482457436689856</lower><upper>50.265482457436689856</upper></limit>
+</axis>
+</joint>
+
+<joint name="DynaRotor_To_Dynamixel_J2" type="revolute">
+<pose>0.0021590929743359934395 0.11824063163812106869 0.45061598449655648757 -1.5707963267949018871 -1.570796326794886566 0</pose>
+<parent>dc11_a01_horn_ref</parent>
+<child>dc14_a01_ref</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity><lower>-3.141592653589793116</lower><upper>1.570796326794896558</upper></limit>
+</axis>
+</joint>
+
+<joint name="DynaRotor_to_DynaMount" type="fixed">
+<pose>0.010159092974335991871 0.11799063161340701822 0.45061598449655643206 1.5707963267948970021 -1.0122178984033832863e-15 3.1415926535897842342</pose>
+<parent>dynamount2020</parent>
+<child>dc11_a01_horn_ref</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="DynaMount_To_2020" type="fixed">
+<pose>0.0021761141423912019541 0.12699063161340706785 0.42677269329463052294 -1.5707963267949054398 -1.5707963267948952257 0</pose>
+<parent>2020_t-slot_(1ft)</parent>
+<child>dynamount2020</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="2020_To_HebiRotor2020" type="fixed">
+<pose>0.0089971141423909571644 0.12699063161340679029 0.28837269329463027789 1.570796326794896558 -2.4722131838589761167e-16 -9.5479180117761947863e-15</pose>
+<parent>hebirotor2020</parent>
+<child>2020_t-slot_(1ft)</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="HebiRotor2020_to_J1_Hebi" type="fixed">
+<pose>-0.0046998459203868008655 0.1109906316134068871 0.1951174444384043416 1.5707963267949056618 1.5707963267948956698 0</pose>
+<parent>hebi_rotor_disc__2</parent>
+<child>hebirotor2020</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="Hebi_Rotor_J1" type="revolute">
+<pose>0.0019971141460021057251 0.10494063161340683177 0.17894955261945674763 1.5707963267949054398 1.5707963267948947816 0</pose>
+<parent>hebi_stator__2</parent>
+<child>hebi_rotor_disc__2</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity><lower>-2.356194490192344837</lower><upper>2.356194490192344837</upper></limit>
+</axis>
+</joint>
+
+<joint name="Hebi_J1_Stator_To_HebiStatorRightAngle" type="fixed">
+<pose>-0.010002885853997929219 0.079940631613406934464 0.20294955261945682445 1.5707963267948958919 6.3220621250071025446e-15 -5.0792703376599389223e-15</pose>
+<parent>hebistatorrightangle2040</parent>
+<child>hebi_stator__2</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="HebiStatorRightAngle_To_2040" type="fixed">
+<pose>-0.012002885853998130489 0.072940631613406692324 0.17894955261945680314 -1.5707963267948958919 -6.3220621250071017558e-15 3.141592653589788231</pose>
+<parent>2040_t-slot_(1ft)_2</parent>
+<child>hebistatorrightangle2040</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="2040_To_HebiStatorNormal" type="fixed">
+<pose>-0.019903674086313591363 0.072867408308703238151 0.026549552619457350566 -3.1415926535897868987 7.6857623156658274501e-16 1.5707963267948956698</pose>
+<parent>hebistatornormal2040</parent>
+<child>2040_t-slot_(1ft)_2</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="Hebi_Base_Stator_To_HebiStatorNormal" type="fixed">
+<pose>-0.026000000001496159641 0.072950280607106149366 0.01654955261945736944 3.1415926535897904515 1.9264273792869014003e-15 1.8318679906314514937e-15</pose>
+<parent>hebi_stator_</parent>
+<child>hebistatornormal2040</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<joint name="Hebi_Rotor_Base" type="revolute">
+<pose>-1.4953877848693203733e-12 0.062950280607105849051 -0.0084504473805426718463 -3.1415926535897913396 1.9264273792869010058e-15 1.8318679906314514937e-15</pose>
+<parent>hebi_rotor_disc_</parent>
+<child>hebi_stator_</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity><lower>-6.283185307179586232</lower><upper>6.283185307179586232</upper></limit>
+</axis>
+</joint>
+
+<joint name="HebiRotor2020_To_HebiBase" type="fixed">
+<pose>-1.4954045890469558738e-12 0.062950280607105862929 -0.014500447380542770548 -3.141592653589793116 -2.2204460492511265937e-16 -2.2204460492878865258e-16</pose>
+<parent>base_link</parent>
+<child>hebi_rotor_disc_</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<link name="2020_t-slot_(1ft)_2">
+<frame name="2020_t-slot_(1ft)_2_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2020_t-slot_(1ft)_2_0_2020_t-slot_(1ft)_visual">
+<pose>-0.094518909366434339381 0.062950280607105821296 -0.040500447380543001807 -1.570796326794896558 3.3276911482033588679e-16 -1.7535064207747780445e-30</pose>
+<geometry>
+<mesh><uri>file://2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2020_t-slot_(1ft)_2_0_2020_t-slot_(1ft)_visual">
+<pose>-0.094518909366434339381 0.062950280607105821296 -0.040500447380543001807 -1.570796326794896558 3.3276911482033588679e-16 -1.7535064207747780445e-30</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2020_t-slot_(1ft)_2_frame">-0.094518909366434353259 0.062950280607105821296 -0.04050044738054298793 0 0 0</pose>
+<mass>0.14544346412865538642</mass>
+<inertia><ixx>0.0011319123253517623506</ixx><ixy>-1.9868098498108078566e-33</ixy><ixz>8.3636533823379989662e-35</ixz><iyy>1.1801323089674788154e-05</iyy><iyz>-6.9950982647662345838e-20</iyz><izz>0.0011319123253517627842</izz></inertia>
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2020" type="fixed">
+<pose>-0.094518909366434339381 0.062950280607105876807 -0.030500447380542985987 6.2450045135165043073e-17 1.8489588698446830042e-30 -1.7742878670148968428e-30</pose>
+<parent>base_link</parent>
+<child>2020_t-slot_(1ft)_2</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<link name="2020_t-slot_(1ft)_3">
+<frame name="2020_t-slot_(1ft)_3_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2020_t-slot_(1ft)_3_0_2020_t-slot_(1ft)_visual">
+<pose>0.09451890936344353733 0.062950280607105807418 -0.040500447380543140585 -1.570796326794896558 3.3276911482033800685e-16 7.0734422548816890009e-32</pose>
+<geometry>
+<mesh><uri>file://2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2020_t-slot_(1ft)_3_0_2020_t-slot_(1ft)_visual">
+<pose>0.09451890936344353733 0.062950280607105807418 -0.040500447380543140585 -1.570796326794896558 3.3276911482033800685e-16 7.0734422548816890009e-32</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2020_t-slot_(1ft)_3_frame">0.094518909363443523453 0.062950280607105807418 -0.040500447380543126707 0 0 0</pose>
+<mass>0.14544346412865538642</mass>
+<inertia><ixx>0.0011319123253517675547</ixx><ixy>5.7131900784529778845e-35</ixy><ixz>-4.3773943742614145648e-36</ixz><iyy>1.1801323089675069369e-05</iyy><iyz>-6.9950982647664283805e-20</iyz><izz>0.0011319123253517948766</izz></inertia>
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2020_2" type="fixed">
+<pose>0.09451890936344353733 0.062950280607105862929 -0.030500447380542985987 6.2450045135164944465e-17 -2.0353893147289206465e-32 4.9952976308697872753e-32</pose>
+<parent>base_link</parent>
+<child>2020_t-slot_(1ft)_3</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+<link name="2040_t-slot_(1ft)_3">
+<frame name="2040_t-slot_(1ft)_3_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="2040_t-slot_(1ft)_3_0_2040_t-slot_(1ft)_visual">
+<pose>0.029018909363443392418 0.06295028060710591844 -0.040500447380543098952 1.570796326794896558 -1.570796326794896336 0</pose>
+<geometry>
+<mesh><uri>file://2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+<material><ambient>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</ambient><diffuse>0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="2040_t-slot_(1ft)_3_0_2040_t-slot_(1ft)_visual">
+<pose>0.029018909363443392418 0.06295028060710591844 -0.040500447380543098952 1.570796326794896558 -1.570796326794896336 0</pose>
+<geometry>
+<mesh><uri>file://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="2040_t-slot_(1ft)_3_frame">0.028518281482988773468 0.062950280607105904562 -0.040500447380543078135 0 0 0</pose>
+<mass>0.25219173558876550878</mass>
+<inertia><ixx>0.0019627392288486750563</ixx><ixy>6.4285580421888812322e-32</ixy><ixz>-1.0150876684247938794e-20</ixz><iyy>5.1086237781545936745e-05</iyy><iyz>-3.4825400179781643719e-19</iyz><izz>0.0019932434921116409451</izz></inertia>
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2040_2" type="fixed">
+<pose>0.038518909363443418203 0.062950280607105862929 -0.030500447380542996395 4.8572257327350709577e-17 4.9303806576313128362e-32 -3.141592653589793116</pose>
+<parent>base_link</parent>
+<child>2040_t-slot_(1ft)_3</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+
+</model>
+</sdf>

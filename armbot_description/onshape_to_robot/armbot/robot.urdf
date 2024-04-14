@@ -1,0 +1,570 @@
+<robot name="armbot">
+<link name="base_link">
+<visual>
+<origin xyz="-1.4954010252310467877e-12 0.062950280607105862929 -0.014800447380542768733" rpy="-3.141592653589793116 6.1629758220391415926e-32 1.3684555315672011322e-48" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl"/>
+</geometry>
+<material name="hebirotor2020_material">
+<color rgba="0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-1.4954010252310467877e-12 0.062950280607105862929 -0.014800447380542768733" rpy="-3.141592653589793116 6.1629758220391415926e-32 1.3684555315672011322e-48" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="1.471073017230224444e-06 0.062950447604268128243 -0.024329139199410744487" rpy="0 0 0"/>
+<mass value="0.10897536745364015676" />
+<inertia ixx="2.0995325698152185787e-05" ixy="7.161065988428246499e-10"  ixz="-5.0057125776953910516e-10" iyy="0.00033109911054740619922" iyz="-5.8223854087903742578e-11" izz="0.0003490797833931392276" />
+</inertial>
+</link>
+
+<link name="2040_t-slot_(1ft)">
+<visual>
+<origin xyz="0.0095000000000000049682 -5.5511151231257827021e-17 -0.0099999999999999603095" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2040_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.0095000000000000049682 -5.5511151231257827021e-17 -0.0099999999999999603095" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.010000627880454622184 -4.1908471395730592803e-17 -0.0099999999999999360234" rpy="0 0 0"/>
+<mass value="0.25219173558876550878" />
+<inertia ixx="0.0019627392288486663827" ixy="-2.6969609570568084696e-35"  ixz="1.0150876684247982429e-20" iyy="5.108623778154473057e-05" iyz="3.9368967951363812469e-36" izz="0.001993243492111585434" />
+</inertial>
+</link>
+
+<joint name="Base2040_To_Base_HebiRotor2020" type="fixed">
+<origin xyz="-0.038518909366434213315 0.062950280607105876807 -0.030500447380542996395" rpy="1.7347234759768063549e-16 -1.1102230246249800328e-16 1.1102230246371817388e-16" />
+<parent link="base_link" />
+<child link="2040_t-slot_(1ft)" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="hebi_rotor_disc_">
+<visual>
+<origin xyz="0 0 -0.016049999999999998296" rpy="-1.570796326794896558 -1.1826740086016405326e-42 -1.3866695645463571893e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl"/>
+</geometry>
+<material name="hebi_rotor_disc__material">
+<color rgba="0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 -0.016049999999999998296" rpy="-1.570796326794896558 -1.1826740086016405326e-42 -1.3866695645463571893e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="5.3210870115545232156e-07 -1.2292941858880708096e-05 -0.0034408089083631716344" rpy="0 0 0"/>
+<mass value="0.04989516048000000592" />
+<inertia ixx="1.0717357666266213602e-05" ixy="-3.2637329147397542116e-13"  ixz="-9.0024786468028005749e-11" iyy="1.0829283098184938749e-05" iyz="5.806007811640654281e-10" izz="2.1283842582398007154e-05" />
+</inertial>
+</link>
+
+<link name="hebi_stator_">
+<visual>
+<origin xyz="0 0 -0.010000000000000001943" rpy="-1.57079632679489678 -1.6661176870015304645e-31 2.8740624642040459538e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl"/>
+</geometry>
+<material name="hebi_stator__material">
+<color rgba="0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 -0.010000000000000001943" rpy="-1.57079632679489678 -1.6661176870015304645e-31 2.8740624642040459538e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.018552404497146884194 0.002453397385385477393 -0.010897526582053597421" rpy="0 0 0"/>
+<mass value="0.29483503919999992648" />
+<inertia ixx="0.00012040144433770747152" ixy="-2.6094887648044854528e-05"  ixz="-4.5177550717948196561e-06" iyy="0.00024371596634352883084" iyz="-5.7552027333109680684e-07" izz="0.0003252797677537240268" />
+</inertial>
+</link>
+
+<link name="hebistatornormal2040">
+<visual>
+<origin xyz="0.016163453616779403094 0.009999999999999995004 0" rpy="1.570796326794896558 -1.6661176870015129482e-31 1.2481013388663424568e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebistatornormal2040.stl"/>
+</geometry>
+<material name="hebistatornormal2040_material">
+<color rgba="0.78823529411764703401 0.011764705882352941013 0.011764705882352941013 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.016163453616779403094 0.009999999999999995004 0" rpy="1.570796326794896558 -1.6661176870015129482e-31 1.2481013388663424568e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebistatornormal2040.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.02633814267204611162 0.010000000134800391544 -0.046566556115122594017" rpy="0 0 0"/>
+<mass value="0.15651906882669003318" />
+<inertia ixx="0.00020929689747815441209" ixy="-5.8518426155922671031e-11"  ixz="-1.7895630898721051494e-06" iyy="0.0002279104915185418826" iyz="-6.700967350389913429e-13" izz="6.266390998558011335e-05" />
+</inertial>
+</link>
+
+<link name="2040_t-slot_(1ft)_2">
+<visual>
+<origin xyz="-0.0099267766952966379757 0.019426776695296681108 -0.15240000000000003544" rpy="7.2025529071766641234e-31 -1.2123977719119917751e-31 -7.1393977580059556565e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2040_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.0099267766952966379757 0.019426776695296681108 -0.15240000000000003544" rpy="7.2025529071766641234e-31 -1.2123977719119917751e-31 -7.1393977580059556565e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-0.0099267766952966136895 0.019927404575751296589 -0.15240000000000003544" rpy="0 0 0"/>
+<mass value="0.25219173558876550878" />
+<inertia ixx="0.001993243492111585434" ixy="5.6263373911296531025e-35"  ixz="2.3982585679834778155e-34" iyy="0.0019627392288486663827" iyz="1.4530350313457342832e-33" izz="5.1086237781544757675e-05" />
+</inertial>
+</link>
+
+<link name="hebistatorrightangle2040">
+<visual>
+<origin xyz="-0.01199999999999999678 0 -0.0022247999999999990006" rpy="-1.570796326794896558 -4.7094784995101201527e-31 1.224359819255115732e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebistatorrightangle2040.stl"/>
+</geometry>
+<material name="hebistatorrightangle2040_material">
+<color rgba="0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.01199999999999999678 0 -0.0022247999999999990006" rpy="-1.570796326794896558 -4.7094784995101201527e-31 1.224359819255115732e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebistatorrightangle2040.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-0.010421103655170828317 -5.0858147083795744678e-19 -0.0034889930474717263317" rpy="0 0 0"/>
+<mass value="0.026450088103838233222" />
+<inertia ixx="2.5671961898538429701e-05" ixy="2.6953425109650467174e-37"  ixz="4.5967177282339475176e-10" iyy="3.656094923152486188e-06" iyz="-1.4247651022418202275e-36" izz="2.9117912025295751956e-05" />
+</inertial>
+</link>
+
+<link name="hebi_stator__2">
+<visual>
+<origin xyz="0.012000000000000001985 -0.023999999999999993561 -0.014999999999999999445" rpy="1.570796326794896558 8.724663328634863133e-33 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl"/>
+</geometry>
+<material name="hebi_stator__material">
+<color rgba="0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.012000000000000001985 -0.023999999999999993561 -0.014999999999999999445" rpy="1.570796326794896558 8.724663328634863133e-33 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_stator_.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.030552404497146884443 -0.026453397385385470086 -0.014102473417946403966" rpy="0 0 0"/>
+<mass value="0.29483503919999992648" />
+<inertia ixx="0.00012040144433770747152" ixy="2.6094887648044854528e-05"  ixz="4.5177550717948238913e-06" iyy="0.00024371596634352883084" iyz="-5.7552027333110993585e-07" izz="0.0003252797677537240268" />
+</inertial>
+</link>
+
+<link name="hebi_rotor_disc__2">
+<visual>
+<origin xyz="-2.7755575615628913511e-17 0 0.009999999999999995004" rpy="1.570796326794896558 9.6427774785462034982e-32 2.166686409151816355e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl"/>
+</geometry>
+<material name="hebi_rotor_disc__material">
+<color rgba="0.79607843137254896693 0.82352941176470584317 0.9372549019607843146 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-2.7755575615628913511e-17 0 0.009999999999999995004" rpy="1.570796326794896558 9.6427774785462034982e-32 2.166686409151816355e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebi_rotor_disc_.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="5.3210870112769674594e-07 1.2292941858880708096e-05 -0.0026091910916368320911" rpy="0 0 0"/>
+<mass value="0.04989516048000000592" />
+<inertia ixx="1.0717357666266213602e-05" ixy="3.2637329147397542116e-13"  ixz="9.0024786468028005749e-11" iyy="1.0829283098184938749e-05" iyz="5.806007811640654281e-10" izz="2.1283842582398007154e-05" />
+</inertial>
+</link>
+
+<link name="hebirotor2020">
+<visual>
+<origin xyz="0.016167891820443924811 0.0066969600627775089513 -0.00030000000000000859313" rpy="3.141592653589793116 -9.889601830021382244e-33 4.2739917052898307991e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl"/>
+</geometry>
+<material name="hebirotor2020_material">
+<color rgba="0.97254901960784312376 0.78039215686274510109 0.82352941176470584317 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.016167891820443924811 0.0066969600627775089513 -0.00030000000000000859313" rpy="3.141592653589793116 -9.889601830021382244e-33 4.2739917052898307991e-32" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/hebirotor2020.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.016169362894956556403 0.0066971270599397794698 -0.0098286918188678525088" rpy="0 0 0"/>
+<mass value="0.10897536745364015676" />
+<inertia ixx="2.099532569815209092e-05" ixy="7.1610659884281462033e-10"  ixz="-5.0057125776953104015e-10" iyy="0.00033109911054739839297" iyz="-5.8223854086779345631e-11" izz="0.00034907978339312946978" />
+</inertial>
+</link>
+
+<link name="2020_t-slot_(1ft)">
+<visual>
+<origin xyz="-0.0070879942314911077716 -5.5511151231257827021e-17 -0.010000000000000008882" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2020_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.0070879942314911077716 -5.5511151231257827021e-17 -0.010000000000000008882" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-0.0070879942314911199147 -5.1580089475943055001e-17 -0.0099999999999999984734" rpy="0 0 0"/>
+<mass value="0.14544346412865538642" />
+<inertia ixx="0.0011319123253517623506" ixy="-3.1943739181766660246e-36"  ixz="8.8422024073716291842e-34" iyy="1.1801323089674781378e-05" iyz="-2.3739847221577131319e-36" izz="0.0011319123253517623506" />
+</inertial>
+</link>
+
+<link name="dynamount2020">
+<visual>
+<origin xyz="0.023843291201925909117 -1.7021168055160809662e-05 -0.012499999999999997224" rpy="1.570796326794896558 -0 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dynamount2020.stl"/>
+</geometry>
+<material name="dynamount2020_material">
+<color rgba="0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.023843291201925909117 -1.7021168055160809662e-05 -0.012499999999999997224" rpy="1.570796326794896558 -0 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dynamount2020.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.0066512139609104826976 2.437812719165645187e-06 -0.0042091105877174218863" rpy="0 0 0"/>
+<mass value="0.00656743569264333759" />
+<inertia ixx="2.8707760317925084672e-07" ixy="7.5996646431139962628e-10"  ixz="9.1652725861714266807e-08" iyy="1.1208584748380474788e-06" iyz="3.0603079134551915776e-11" izz="1.338396620352668297e-06" />
+</inertial>
+</link>
+
+<link name="dc11_a01_horn_ref">
+<visual>
+<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.372467847342714436e-30 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
+</geometry>
+<material name="dc11_a01_horn_ref_material">
+<color rgba="0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.372467847342714436e-30 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.0079996602093214980861 3.916857396192232021e-12 -0.0015863725912065279166" rpy="0 0 0"/>
+<mass value="0.011339809200000001976" />
+<inertia ixx="3.1759308584662223659e-07" ixy="1.5373973421628969482e-46"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441514472e-16" izz="6.0240878644093353155e-07" />
+</inertial>
+</link>
+
+<link name="dc14_a01_ref">
+<visual>
+<origin xyz="0 -0.01200000000000000025 -0.019000000000000002998" rpy="-5.8321988212945059811e-31 -1.1909813599402372975e-31 -1.2619427185750506496e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc14_a01_ref.stl"/>
+</geometry>
+<material name="dc14_a01_ref_material">
+<color rgba="0.22352941176470589313 0.21960784313725489891 0.21960784313725489891 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -0.01200000000000000025 -0.019000000000000002998" rpy="-5.8321988212945059811e-31 -1.1909813599402372975e-31 -1.2619427185750506496e-31" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc14_a01_ref.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.00063149261491103972094 -0.011999833658950622914 -0.018368609741091779242" rpy="0 0 0"/>
+<mass value="0.43091274960000003347" />
+<inertia ixx="0.00011841540290033449794" ixy="5.4747109549488643389e-09"  ixz="2.8692028355177537631e-06" iyy="8.3991546790709148808e-05" iyz="-7.0415392311551074199e-09" izz="0.00011841553809440018427" />
+</inertial>
+</link>
+
+<link name="dc11_a01_horn_ref_2">
+<visual>
+<origin xyz="0 3.4694469519536141888e-18 -0.0035000000000000031086" rpy="1.570796326794896558 -5.0314468980647826798e-31 -4.2329414931314420841e-21" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
+</geometry>
+<material name="dc11_a01_horn_ref_material">
+<color rgba="0.24313725490196078094 0.24313725490196078094 0.24313725490196078094 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 3.4694469519536141888e-18 -0.0035000000000000031086" rpy="1.570796326794896558 -5.0314468980647826798e-31 -4.2329414931314420841e-21" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-3.3979067850231433241e-07 3.9168608656391855902e-12 -0.0015863725912065415775" rpy="0 0 0"/>
+<mass value="0.011339809200000001976" />
+<inertia ixx="3.1759308584662223659e-07" ixy="-1.3917744060918825755e-28"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441553915e-16" izz="6.0240878644093353155e-07" />
+</inertial>
+</link>
+
+<joint name="DynaRotor_To_Dynamixel_J3" type="revolute">
+<origin xyz="0.019000000000000016875 -0.023999999999999990091 -0.019000000000000030753" rpy="1.5707963267981290834 -1.5707105036825337319 1.5707963268983915484" />
+<parent link="dc14_a01_ref" />
+<child link="dc11_a01_horn_ref_2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-50.265482457436689856" upper="50.265482457436689856"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="DynaRotor_To_Dynamixel_J2" type="revolute">
+<origin xyz="0.0080000000000000001665 5.5511151231257827021e-17 0.00025000002471399496162" rpy="3.5599014307809674267e-15 -8.813389537416573132e-15 1.5707963267948992225" />
+<parent link="dc11_a01_horn_ref" />
+<child link="dc14_a01_ref" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-3.141592653589793116" upper="1.570796326794896558"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="DynaRotor_to_DynaMount" type="fixed">
+<origin xyz="0.023843291201925909117 0.0079829788319448410916 -0.008999999999999980238" rpy="3.551440358039829389e-17 8.3266726846887307526e-17 -1.570796326794896558" />
+<parent link="dynamount2020" />
+<child link="dc11_a01_horn_ref" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="DynaMount_To_2020" type="fixed">
+<origin xyz="-0.0068209999999999998063 0.13839999999999996749 0" rpy="-3.1415926535897926719 -1.0152230506672984265e-15 1.5707963267948972241" />
+<parent link="2020_t-slot_(1ft)" />
+<child link="dynamount2020" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="2020_To_HebiRotor2020" type="fixed">
+<origin xyz="-0.093255248856225880782 0.013696960062777523842 -0.016000000000000000333" rpy="-1.2994123466236261379e-15 -5.2735593669694186252e-16 1.5707963267948972241" />
+<parent link="hebirotor2020" />
+<child link="2020_t-slot_(1ft)" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="HebiRotor2020_to_J1_Hebi" type="fixed">
+<origin xyz="-0.01616789181894767724 -0.0066969600663889690406 -0.0060499999999999998224" rpy="1.1102230246252221145e-16 -1.5233540425402927026e-15 6.0509424482722197083e-16" />
+<parent link="hebi_rotor_disc__2" />
+<child link="hebirotor2020" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="Hebi_Rotor_J1" type="revolute">
+<origin xyz="0.012000000000000001985 -0.023999999999999993561 -0.025000000000000008327" rpy="3.8302694349567979531e-15 2.0107170622416782261e-15 -1.570796326794891673" />
+<parent link="hebi_stator__2" />
+<child link="hebi_rotor_disc__2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-2.356194490192344837" upper="2.356194490192344837"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="Hebi_J1_Stator_To_HebiStatorRightAngle" type="fixed">
+<origin xyz="-0.0019999999999999965722 -0.023999999999999993561 -0.007000000000000020095" rpy="-4.8210248146452116899e-27 4.7094784994571974888e-31 3.141592653589793116" />
+<parent link="hebistatorrightangle2040" />
+<child link="hebi_stator__2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="HebiStatorRightAngle_To_2040" type="fixed">
+<origin xyz="7.3223304703343150557e-05 0.0079007882323144738163 -0.15239999999999997993" rpy="1.570796326794896558 7.2025529071818138952e-31 -1.5707963267948934494" />
+<parent link="2040_t-slot_(1ft)_2" />
+<child link="hebistatorrightangle2040" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="2040_To_HebiStatorNormal" type="fixed">
+<origin xyz="0.0060963259151823254167 8.2872298402911215298e-05 -0.010000000000000001943" rpy="4.395634745720240193e-15 1.9402519281805076759e-15 -1.5707963267948972241" />
+<parent link="hebistatornormal2040" />
+<child link="2040_t-slot_(1ft)_2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="Hebi_Base_Stator_To_HebiStatorNormal" type="fixed">
+<origin xyz="-0.025999999999999998807 -0.010000000000000008882 -0.025000000000000001388" rpy="-4.5165941934516604263e-15 -5.6104222131065772301e-31 2.8740624642035830874e-31" />
+<parent link="hebi_stator_" />
+<child link="hebistatornormal2040" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="Hebi_Rotor_Base" type="revolute">
+<origin xyz="1.5460807775713109823e-17 1.3877787807814456755e-17 -0.0060500000000000102307" rpy="1.5232713836443059971e-15 -2.1484719842119891119e-15 -2.0539125955602208192e-15" />
+<parent link="hebi_rotor_disc_" />
+<child link="hebi_stator_" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-6.283185307179586232" upper="6.283185307179586232"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="HebiRotor2020_To_HebiBase" type="fixed">
+<origin xyz="-1.4954045890469558738e-12 0.062950280607105862929 -0.014500447380542770548" rpy="-3.141592653589793116 -2.2204460492511265937e-16 -2.2204460492878865258e-16" />
+<parent link="base_link" />
+<child link="hebi_rotor_disc_" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="2020_t-slot_(1ft)_2">
+<visual>
+<origin xyz="0 -5.5511151231257827021e-17 -0.010000000000000012351" rpy="-1.570796326794896558 3.3276911482033396394e-16 -5.4061334650471381626e-47" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2020_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -5.5511151231257827021e-17 -0.010000000000000012351" rpy="-1.570796326794896558 3.3276911482033396394e-16 -5.4061334650471381626e-47" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-9.8353322432777684185e-18 -5.9442212986572592879e-17 -0.010000000000000000208" rpy="0 0 0"/>
+<mass value="0.14544346412865538642" />
+<inertia ixx="0.0011319123253517623506" ixy="-6.2675455574998712598e-50"  ixz="3.1787236362860796971e-84" iyy="1.1801323089674781378e-05" iyz="1.7258042562353164766e-36" izz="0.0011319123253517623506" />
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2020" type="fixed">
+<origin xyz="-0.094518909366434339381 0.062950280607105876807 -0.030500447380542985987" rpy="6.2450045135165043073e-17 1.8489588698446830042e-30 -1.7742878670148968428e-30" />
+<parent link="base_link" />
+<child link="2020_t-slot_(1ft)_2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="2020_t-slot_(1ft)_3">
+<visual>
+<origin xyz="0 -5.5511151231257827021e-17 -0.010000000000000008882" rpy="-1.570796326794896558 3.3276911482033396394e-16 6.596349013349935585e-48" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2020_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -5.5511151231257827021e-17 -0.010000000000000008882" rpy="-1.570796326794896558 3.3276911482033396394e-16 6.596349013349935585e-48" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2020_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-9.8353322432777684185e-18 -5.9442212986572592879e-17 -0.0099999999999999967387" rpy="0 0 0"/>
+<mass value="0.14544346412865538642" />
+<inertia ixx="0.0011319123253517623506" ixy="8.0824701134638716517e-51"  ixz="-5.490645733991882933e-86" iyy="1.1801323089674781378e-05" iyz="1.7258042562216967358e-36" izz="0.0011319123253517623506" />
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2020_2" type="fixed">
+<origin xyz="0.09451890936344353733 0.062950280607105862929 -0.030500447380542985987" rpy="6.2450045135164944465e-17 -2.0353893147289206465e-32 4.9952976308697872753e-32" />
+<parent link="base_link" />
+<child link="2020_t-slot_(1ft)_3" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="2040_t-slot_(1ft)_3">
+<visual>
+<origin xyz="0.0095000000000000084377 -4.1633363423443370266e-17 -0.009999999999999963779" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+<material name="2040_t-slot_(1ft)_material">
+<color rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.0095000000000000084377 -4.1633363423443370266e-17 -0.009999999999999963779" rpy="-1.570796326794896558 -1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://armbot_description/onshape_to_robot/armbot/2040_t-slot_(1ft).stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.010000627880454625654 -2.8030683587916136048e-17 -0.0099999999999999394928" rpy="0 0 0"/>
+<mass value="0.25219173558876550878" />
+<inertia ixx="0.0019627392288486663827" ixy="2.4663324683811608607e-48"  ixz="1.0150876684247982429e-20" iyy="5.108623778154473057e-05" iyz="-2.1576255848317954455e-35" izz="0.001993243492111585434" />
+</inertial>
+</link>
+
+<joint name="Base_HebiRotor2020_Base2040_2" type="fixed">
+<origin xyz="0.038518909363443418203 0.062950280607105862929 -0.030500447380542996395" rpy="4.8572257327350709577e-17 4.9303806576313128362e-32 -3.141592653589793116" />
+<parent link="base_link" />
+<child link="2040_t-slot_(1ft)_3" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+
+</robot>

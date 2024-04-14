@@ -3,6 +3,7 @@ logs/
 build/
 bin/
 install/
+log/
 lib/
 msg_gen/
 srv_gen/
@@ -53,3 +54,4 @@ qtcreator-*
 CATKIN_IGNORE
 .vscode/c_cpp_properties.json
 .vscode/settings.json
+log/COLCON_IGNORE

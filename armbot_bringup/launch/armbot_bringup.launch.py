@@ -1,31 +1,31 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
-from ament_index_python.packages import get_package_share_directory
-import os
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
+
 
 def generate_launch_description():
-    pkg_name = 'armbot_bringup'
+    # Define the URDF package name
+    urdf_pkg_name = 'armbot_description'
 
-    pkg_dir = get_package_share_directory(pkg_name)
+    # Find the URDF package directory
+    urdf_pkg_dir = FindPackageShare(package=urdf_pkg_name).find(urdf_pkg_name)
 
-    # Define the path to the URDF file
-    urdf_file = os.path.join(pkg_dir, 'urdf', 'armbot.urdf.xacro')
+    # Define the path to the URDF file within the 'armbot_description' package
+    urdf_file_path = f"{urdf_pkg_dir}/onshape_to_robot/armbot/robot.urdf"
 
-    # Use xacro to generate the URDF
-    robot_description_config = ExecuteProcess(
-        cmd=['xacro', urdf_file],
-        output='screen',
-        shell=True
-    )
+    # Use premade urdf file
+    with open(urdf_file_path, 'r') as urdf_file:
+        robot_description_content = urdf_file.read()
 
     # Node to publish the robot state
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
-        output='both',
-        parameters=[{'robot_description': robot_description_config}],
+        output='screen',
+        parameters=[{'robot_description': robot_description_content}],
     )
 
     # Optional: Launch the joint_state_publisher_gui for manual joint control
@@ -35,17 +35,24 @@ def generate_launch_description():
         name='joint_state_publisher_gui'
     )
 
-    # Launch RViz
+    # Define the package name for the launch configuration
+    pkg_name = 'armbot_bringup'
+
+    rviz_config_file = PathJoinSubstitution([
+        FindPackageShare(pkg_name),
+        'rviz',
+        'armbot.rviz'  # replace 'armbot.rviz' with 'specific_file.rviz'
+    ])
+
     rviz = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', os.path.join(pkg_dir, 'rviz', 'armbot.rviz')],
+        arguments=['-d', rviz_config_file],
         output='screen'
     )
 
     return LaunchDescription([
-        robot_description_config,
         robot_state_publisher,
         joint_state_publisher_gui,
         rviz

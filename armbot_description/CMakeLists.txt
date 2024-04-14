@@ -7,8 +7,18 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclpy REQUIRED)
+
+# install URDF/XACRO files
+install(DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+install(DIRECTORY onshape_to_robot
+  DESTINATION share/${PROJECT_NAME}
+)
+# Install mesh files
+install(DIRECTORY meshes
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

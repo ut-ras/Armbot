@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="actuator_joint" params="name parent child origin rpy axis">
+        <joint name="${name}" type="revolute">
+            <origin xyz="${origin}" rpy="${rpy}"/> <!-- Set the joint frame's position and orientation -->
+            <parent link="${parent}"/>
+            <child link="${child}"/>
+            <axis xyz="${axis}"/> <!-- Use the axis parameter here -->
+            <limit lower="-3.14" upper="3.14" effort="1000" velocity="1.5"/>
+        </joint>
+    </xacro:macro>
+</robot>

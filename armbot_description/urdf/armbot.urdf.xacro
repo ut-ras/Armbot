@@ -1,12 +1,57 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="simple_arm">
-    <xacro:include filename="$(find your_package_name)/urdf/actuator_joint.xacro"/>
-    <xacro:include filename="$(find your_package_name)/urdf/link_2040_extrusion.xacro"/>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="armbot">
 
-    <xacro:link_2040_extrusion name="base_link" length="0.1"/>
-    <xacro:link_2040_extrusion name="mid_link" length="0.2"/>
-    <xacro:link_2040_extrusion name="end_link" length="0.2"/>
+  <xacro:include filename="Generic_actuator_joint.xacro"/>
+  <xacro:include filename="link_2040_extrusion.xacro"/>
+  <xacro:include filename="link_2020_extrusion.xacro" />
 
-    <xacro:actuator_joint name="joint1" parent="base_link" child="mid_link"/>
-    <xacro:actuator_joint name="joint2" parent="mid_link" child="end_link"/>
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <material name="dark_grey">
+        <color rgba="0.2 0.2 0.2 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Dynamixel Motor Mount (mesh)-->
+    <link name="Dynamixel_Mount">
+        <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <mesh filename="package://armbot_description/meshes/DynaMount.stl"/>
+        </geometry>
+        <material name="dark_grey">
+            <color rgba="0.2 0.2 0.2 1.0"/>
+        </material>
+        </visual>
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <mesh filename="package://armbot_description/meshes/DynaMount.stl"/>
+        </geometry>
+        </collision>
+    </link>
+
+
+  <!-- Rest of the arm setup -->
+  <!-- <xacro:link_2040_extrusion name="L2" length="0.15"/> -->
+  <xacro:link_2040_extrusion name="L2" length="0.3048"/>
+  <xacro:link_2020_extrusion name="L1" length="0.3048"/>
+  <!-- <xacro:link_2020_extrusion name="EE" length="0.1"/> -->
+
+  <xacro:actuator_joint name="J3" parent="base_link" child="L2" origin="0 0 0" rpy="0 0 0" axis="0 0 1"/>
+  <xacro:actuator_joint name="J2" parent="L2" child="L1" origin="0 0.02 0.1" rpy="0 0 0" axis="0 1 0"/>
+  <xacro:actuator_joint name="J1" parent="L1" child="Dynamixel_Mount" origin="0 -0.02 0.1" rpy="0 0 0" axis="0 1 0"/>
+
 </robot>
