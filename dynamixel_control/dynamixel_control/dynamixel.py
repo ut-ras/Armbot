@@ -266,7 +266,7 @@ class Dynamixel(Node):
                     position = point.positions[i]
 
                     # Send commands to the Dynamixel motor
-                    self.get_logger().info('Setting position of Dynamixel ID %d to %f' % (dynamixel_id, self.angle_to_decimal(position)))
+                    # self.get_logger().info('Setting position of Dynamixel ID %d to %f' % (dynamixel_id, self.angle_to_decimal(position)))
                     self.setPosition(self.angle_to_decimal(position), dynamixel_id)
 
         return result

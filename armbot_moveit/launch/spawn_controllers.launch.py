@@ -76,12 +76,14 @@ def generate_spawn_controllers_launch_custom(moveit_config, dynamixel_hardware_c
             parameters=[dynamixel_hardware_config_file]
         )
     ),
+        # Add the hebi_control_node
     ld.add_action(
         Node(
-            package='rqt_joint_trajectory_controller',
-            executable='rqt_joint_trajectory_controller',
-            name='rqt_joint_trajectory_controller',
+            package='hebi_control',
+            executable='hebi_control_node',
+            name='hebi_control_node',
             output='screen',
         )
     )
+
     return ld

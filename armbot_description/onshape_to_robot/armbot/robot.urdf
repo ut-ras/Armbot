@@ -358,7 +358,7 @@
 <parent link="dc14_a01_ref" />
 <child link="dc11_a01_horn_ref_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-50.265482457436689856" upper="50.265482457436689856"/>
+<limit effort="1" velocity="4" lower="-10" upper="10"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -367,7 +367,7 @@
 <parent link="dc11_a01_horn_ref" />
 <child link="dc14_a01_ref" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0" upper="4.712388980384689674"/>
+<limit effort="1" velocity="4" lower="0" upper="4.712388980384689674"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -412,7 +412,7 @@
 <parent link="hebi_stator__2" />
 <child link="hebi_rotor_disc__2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-2.356194490192344837" upper="2.356194490192344837"/>
+<limit effort="1" velocity="0.5" lower="-2.356194490192344837" upper="2.356194490192344837"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -457,7 +457,7 @@
 <parent link="hebi_rotor_disc_" />
 <child link="hebi_stator_" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="-6.283185307179586232" upper="6.283185307179586232"/>
+<limit effort="1" velocity="3" lower="-6.283185307179586232" upper="6.283185307179586232"/>
 <joint_properties friction="0.0"/>
 </joint>
 
