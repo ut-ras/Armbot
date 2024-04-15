@@ -12,7 +12,7 @@ def generate_launch_description():
                 {'startup': True},
                 {'device_name': '/dev/ttyUSB0'},
                 {'baudrate': 57600},
-                {'protocol_version': 1.0},
+                {'protocol_version': 2.0},
                 {'id_1': 1},
                 {'id_2': 2},
             ]

@@ -50,7 +50,7 @@
 <parent link="base_link" />
 <child link="2040_t-slot_(1ft)" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -71,9 +71,9 @@
 </geometry>
 </collision>
 <inertial>
-<origin xyz="5.3210870115545232156e-07 -1.2292941858880708096e-05 -0.0034408089083631716344" rpy="0 0 0"/>
+<origin xyz="5.3210870115546153304e-07 -1.2292941858880731813e-05 -0.0034408089083631764049" rpy="0 0 0"/>
 <mass value="0.04989516048000000592" />
-<inertia ixx="1.0717357666266213602e-05" ixy="-3.2637329147397542116e-13"  ixz="-9.0024786468028005749e-11" iyy="1.0829283098184938749e-05" iyz="5.806007811640654281e-10" izz="2.1283842582398007154e-05" />
+<inertia ixx="1.0717357666266213602e-05" ixy="-3.2637329146580484167e-13"  ixz="-9.0024786468028251318e-11" iyy="1.0829283098184937055e-05" iyz="5.8060078116406646208e-10" izz="2.1283842582398007154e-05" />
 </inertial>
 </link>
 
@@ -94,9 +94,9 @@
 </geometry>
 </collision>
 <inertial>
-<origin xyz="0.018552404497146884194 0.002453397385385477393 -0.010897526582053597421" rpy="0 0 0"/>
-<mass value="0.29483503919999992648" />
-<inertia ixx="0.00012040144433770747152" ixy="-2.6094887648044854528e-05"  ixz="-4.5177550717948196561e-06" iyy="0.00024371596634352883084" iyz="-5.7552027333109680684e-07" izz="0.0003252797677537240268" />
+<origin xyz="0.018552404497146884194 0.0024533973853854782604 -0.010897526582053597421" rpy="0 0 0"/>
+<mass value="0.29483503920000003751" />
+<inertia ixx="0.00012040144433770751217" ixy="-2.609488764804486808e-05"  ixz="-4.5177550717948205031e-06" iyy="0.00024371596634352902058" iyz="-5.755202733310970186e-07" izz="0.00032527976775372424365" />
 </inertial>
 </link>
 
@@ -187,8 +187,8 @@
 </collision>
 <inertial>
 <origin xyz="0.030552404497146884443 -0.026453397385385470086 -0.014102473417946403966" rpy="0 0 0"/>
-<mass value="0.29483503919999992648" />
-<inertia ixx="0.00012040144433770747152" ixy="2.6094887648044854528e-05"  ixz="4.5177550717948238913e-06" iyy="0.00024371596634352883084" iyz="-5.7552027333110993585e-07" izz="0.0003252797677537240268" />
+<mass value="0.29483503920000003751" />
+<inertia ixx="0.00012040144433770751217" ixy="2.609488764804486808e-05"  ixz="4.5177550717948247383e-06" iyy="0.00024371596634352902058" iyz="-5.7552027333111014761e-07" izz="0.00032527976775372424365" />
 </inertial>
 </link>
 
@@ -209,9 +209,9 @@
 </geometry>
 </collision>
 <inertial>
-<origin xyz="5.3210870112769674594e-07 1.2292941858880708096e-05 -0.0026091910916368320911" rpy="0 0 0"/>
+<origin xyz="5.3210870112770595743e-07 1.2292941858880731813e-05 -0.0026091910916368268869" rpy="0 0 0"/>
 <mass value="0.04989516048000000592" />
-<inertia ixx="1.0717357666266213602e-05" ixy="3.2637329147397542116e-13"  ixz="9.0024786468028005749e-11" iyy="1.0829283098184938749e-05" iyz="5.806007811640654281e-10" izz="2.1283842582398007154e-05" />
+<inertia ixx="1.0717357666266213602e-05" ixy="3.2637329146580484167e-13"  ixz="9.0024786468028251318e-11" iyy="1.0829283098184937055e-05" iyz="5.8060078116406646208e-10" izz="2.1283842582398007154e-05" />
 </inertial>
 </link>
 
@@ -286,7 +286,7 @@
 
 <link name="dc11_a01_horn_ref">
 <visual>
-<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.372467847342714436e-30 0" />
+<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.3214775703289575553e-30 0" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
 </geometry>
@@ -295,7 +295,7 @@
 </material>
 </visual>
 <collision>
-<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.372467847342714436e-30 0" />
+<origin xyz="0.0080000000000000001665 0 -0.0034999999999999892308" rpy="1.570796326794896558 1.3214775703289575553e-30 0" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
 </geometry>
@@ -303,13 +303,13 @@
 <inertial>
 <origin xyz="0.0079996602093214980861 3.916857396192232021e-12 -0.0015863725912065279166" rpy="0 0 0"/>
 <mass value="0.011339809200000001976" />
-<inertia ixx="3.1759308584662223659e-07" ixy="1.5373973421628969482e-46"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441514472e-16" izz="6.0240878644093353155e-07" />
+<inertia ixx="3.1759308584662223659e-07" ixy="1.4879095730585403265e-46"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441514472e-16" izz="6.0240878644093353155e-07" />
 </inertial>
 </link>
 
 <link name="dc14_a01_ref">
 <visual>
-<origin xyz="0 -0.01200000000000000025 -0.019000000000000002998" rpy="-5.8321988212945059811e-31 -1.1909813599402372975e-31 -1.2619427185750506496e-31" />
+<origin xyz="-4.336808689942017736e-19 -0.012000000000000010658 -0.01899999999999998912" rpy="3.9443045261050590271e-31 1.0569560844369113952e-30 0" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc14_a01_ref.stl"/>
 </geometry>
@@ -318,13 +318,13 @@
 </material>
 </visual>
 <collision>
-<origin xyz="0 -0.01200000000000000025 -0.019000000000000002998" rpy="-5.8321988212945059811e-31 -1.1909813599402372975e-31 -1.2619427185750506496e-31" />
+<origin xyz="-4.336808689942017736e-19 -0.012000000000000010658 -0.01899999999999998912" rpy="3.9443045261050590271e-31 1.0569560844369113952e-30 0" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc14_a01_ref.stl"/>
 </geometry>
 </collision>
 <inertial>
-<origin xyz="0.00063149261491103972094 -0.011999833658950622914 -0.018368609741091779242" rpy="0 0 0"/>
+<origin xyz="0.00063149261491103928726 -0.011999833658950633322 -0.018368609741091765364" rpy="0 0 0"/>
 <mass value="0.43091274960000003347" />
 <inertia ixx="0.00011841540290033449794" ixy="5.4747109549488643389e-09"  ixz="2.8692028355177537631e-06" iyy="8.3991546790709148808e-05" iyz="-7.0415392311551074199e-09" izz="0.00011841553809440018427" />
 </inertial>
@@ -332,7 +332,7 @@
 
 <link name="dc11_a01_horn_ref_2">
 <visual>
-<origin xyz="0 3.4694469519536141888e-18 -0.0035000000000000031086" rpy="1.570796326794896558 -5.0314468980647826798e-31 -4.2329414931314420841e-21" />
+<origin xyz="0 0 -0.0034999999999999996392" rpy="1.570796326794896558 -9.0395615523961535344e-31 1.6642747678797904928e-21" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
 </geometry>
@@ -341,42 +341,42 @@
 </material>
 </visual>
 <collision>
-<origin xyz="0 3.4694469519536141888e-18 -0.0035000000000000031086" rpy="1.570796326794896558 -5.0314468980647826798e-31 -4.2329414931314420841e-21" />
+<origin xyz="0 0 -0.0034999999999999996392" rpy="1.570796326794896558 -9.0395615523961535344e-31 1.6642747678797904928e-21" />
 <geometry>
 <mesh filename="package://armbot_description/onshape_to_robot/armbot/dc11_a01_horn_ref.stl"/>
 </geometry>
 </collision>
 <inertial>
-<origin xyz="-3.3979067850231433241e-07 3.9168608656391855902e-12 -0.0015863725912065415775" rpy="0 0 0"/>
+<origin xyz="-3.3979067850231433241e-07 3.9168573961922312132e-12 -0.0015863725912065378913" rpy="0 0 0"/>
 <mass value="0.011339809200000001976" />
-<inertia ixx="3.1759308584662223659e-07" ixy="-1.3917744060918825755e-28"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441553915e-16" izz="6.0240878644093353155e-07" />
+<inertia ixx="3.1759308584662223659e-07" ixy="1.3927771892383324738e-27"  ixz="9.2200454311854088922e-11" iyy="3.1590939815625371744e-07" iyz="-1.1853565631441499681e-16" izz="6.0240878644093353155e-07" />
 </inertial>
 </link>
 
 <joint name="DynaRotor_To_Dynamixel_J3" type="revolute">
-<origin xyz="0.019000000000000016875 -0.023999999999999990091 -0.019000000000000030753" rpy="1.5707963267981290834 -1.5707105036825337319 1.5707963268983915484" />
+<origin xyz="0.019000000000000058509 -0.024000000000000021316 -0.019000000000000030753" rpy="1.5707963267999121015 -1.5707513548487626043 1.570796326804927201" />
 <parent link="dc14_a01_ref" />
 <child link="dc11_a01_horn_ref_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" lower="-50.265482457436689856" upper="50.265482457436689856"/>
+<limit effort="1" velocity="20" lower="-50.265482457436689856" upper="50.265482457436689856"/>
 <joint_properties friction="0.0"/>
 </joint>
 
 <joint name="DynaRotor_To_Dynamixel_J2" type="revolute">
-<origin xyz="0.0080000000000000001665 5.5511151231257827021e-17 0.00025000002471399496162" rpy="3.5599014307809674267e-15 -8.813389537416573132e-15 1.5707963267948992225" />
+<origin xyz="0.0080000000000000088402 5.5511151231257827021e-17 0.00025000002471403659499" rpy="1.4592157403991824048e-15 -2.0114719705239952011e-16 -2.1693674893577824649e-30" />
 <parent link="dc11_a01_horn_ref" />
 <child link="dc14_a01_ref" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" lower="-3.141592653589793116" upper="1.570796326794896558"/>
+<limit effort="1" velocity="20" lower="0" upper="4.712388980384689674"/>
 <joint_properties friction="0.0"/>
 </joint>
 
 <joint name="DynaRotor_to_DynaMount" type="fixed">
-<origin xyz="0.023843291201925909117 0.0079829788319448410916 -0.008999999999999980238" rpy="3.551440358039829389e-17 8.3266726846887307526e-17 -1.570796326794896558" />
+<origin xyz="0.023843291201925853606 0.0079829788319448358874 -0.0089999999999999524825" rpy="3.5514403580398096675e-17 8.326672684688884827e-17 -1.570796326794896558" />
 <parent link="dynamount2020" />
 <child link="dc11_a01_horn_ref" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -385,7 +385,7 @@
 <parent link="2020_t-slot_(1ft)" />
 <child link="dynamount2020" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -394,7 +394,7 @@
 <parent link="hebirotor2020" />
 <child link="2020_t-slot_(1ft)" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -403,7 +403,7 @@
 <parent link="hebi_rotor_disc__2" />
 <child link="hebirotor2020" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -412,7 +412,7 @@
 <parent link="hebi_stator__2" />
 <child link="hebi_rotor_disc__2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" lower="-2.356194490192344837" upper="2.356194490192344837"/>
+<limit effort="1" velocity="20" lower="-2.356194490192344837" upper="2.356194490192344837"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -421,7 +421,7 @@
 <parent link="hebistatorrightangle2040" />
 <child link="hebi_stator__2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -430,7 +430,7 @@
 <parent link="2040_t-slot_(1ft)_2" />
 <child link="hebistatorrightangle2040" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -439,7 +439,7 @@
 <parent link="hebistatornormal2040" />
 <child link="2040_t-slot_(1ft)_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -448,7 +448,7 @@
 <parent link="hebi_stator_" />
 <child link="hebistatornormal2040" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -457,7 +457,7 @@
 <parent link="hebi_rotor_disc_" />
 <child link="hebi_stator_" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" lower="-6.283185307179586232" upper="6.283185307179586232"/>
+<limit effort="1" velocity="20" lower="-6.283185307179586232" upper="6.283185307179586232"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -466,7 +466,7 @@
 <parent link="base_link" />
 <child link="hebi_rotor_disc_" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -498,7 +498,7 @@
 <parent link="base_link" />
 <child link="2020_t-slot_(1ft)_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -530,7 +530,7 @@
 <parent link="base_link" />
 <child link="2020_t-slot_(1ft)_3" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -562,7 +562,7 @@
 <parent link="base_link" />
 <child link="2040_t-slot_(1ft)_3" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20.0" />
+<limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
 

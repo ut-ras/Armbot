@@ -29,11 +29,11 @@ def generate_launch_description():
     )
 
     # Optional: Launch the joint_state_publisher_gui for manual joint control
-    joint_state_publisher_gui = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui'
-    )
+    # joint_state_publisher_gui = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher_gui'
+    # )
 
     # Define the package name for the launch configuration
     pkg_name = 'armbot_bringup'
@@ -54,6 +54,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         robot_state_publisher,
-        joint_state_publisher_gui,
+        # joint_state_publisher_gui,
         # rviz
     ])

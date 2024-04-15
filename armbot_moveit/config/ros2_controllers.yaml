@@ -22,3 +22,4 @@ fourDOF_ARM_Chain_controller:
     state_interfaces:
       - position
       - velocity
+

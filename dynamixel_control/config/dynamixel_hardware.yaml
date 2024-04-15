@@ -1,0 +1,28 @@
+dynamixel_hardware:
+  ros__parameters:
+    joint_name_1: 'DynaRotor_To_Dynamixel_J3'
+    joint_name_2: 'DynaRotor_To_Dynamixel_J2'
+    dynamixel_id_1: 1
+    dynamixel_id_2: 2
+    startup: true
+    device_name: '/dev/ttyUSB0'
+    baudrate: 57600
+    protocol_version: 2.0
+
+dynamixel_a:
+  ros__parameters:
+    id: 1
+    min_pos_limit_deg: 0
+    max_pos_limit_deg: 360.0
+    velocity_limit_rpm: 20.0
+    operating_mode: 4
+    driving_mode: 0
+
+dynamixel_b:
+  ros__parameters:
+    id: 2
+    min_pos_limit_deg: 0
+    max_pos_limit_deg: 270.0
+    velocity_limit_rpm: 20.0
+    operating_mode: 3
+    driving_mode: 0

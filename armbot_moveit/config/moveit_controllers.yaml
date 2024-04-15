@@ -17,3 +17,4 @@ moveit_simple_controller_manager:
       - DynaRotor_To_Dynamixel_J3
     action_ns: follow_joint_trajectory
     default: true
+  

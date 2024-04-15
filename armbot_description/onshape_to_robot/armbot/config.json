@@ -3,7 +3,7 @@
     "onshape_api": "https://cad.onshape.com",
     "onshape_access_key": "RdfcgEMZHLNaM3uhh1zDerpG",
     "onshape_secret_key": "BJBwFeLUDImjF0QhgxP0gQ2AovB9oEtxd7fXDJ7hVGkPNLjk",
-    "outputFormat": "sdf",
+    "outputFormat": "urdf",
     "robotName": "armbot",
     "packageName": "armbot_description/onshape_to_robot/armbot/",
     "simplifySTLs": "all"
