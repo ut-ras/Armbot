@@ -6,9 +6,12 @@ import time
 # Import ROS stuff
 import rclpy
 from rclpy.node import Node
+from rclpy.action import ActionServer
 from std_msgs.msg import Int32
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectory
+from control_msgs.action import FollowJointTrajectory
+
 
 # Uses Dynamixel SDK library and constants
 # able to be found due to colcon build and resourcing of setup files.
@@ -116,25 +119,31 @@ class Dynamixel(Node):
         self.last_diff = 0
 
         self.servo_load_state = 0
-        self.servo_load_state_ros = Int32()
+        self.servo_load_state_ros = 0
         self.servo_speed_state = 0
-        self.servo_speed_state_ros = Int32()
+        self.servo_speed_state_ros = 0
         self.servo_position_state = 0
-        self.servo_position_state_ros = Int32()
+        self.servo_position_state_ros = 0
 
-        # ROS connections
-        self.servo_load_state_pub = self.create_publisher(Int32, '~/servo_load_state', 10)
-        self.servo_speed_state_pub = self.create_publisher(Int32, '~/servo_speed_state', 10)
-        self.servo_position_state_pub = self.create_publisher(Int32, '~/servo_position_state', 10)
+        # # ROS connections
+        # self.servo_load_state_pub = self.create_publisher(Int64, '~/servo_load_state', 10)
+        # self.servo_speed_state_pub = self.create_publisher(Int64, '~/servo_speed_state', 10)
+        # self.servo_position_state_pub = self.create_publisher(Int64, '~/servo_position_state', 10)
         self.joint_state_publisher = self.create_publisher(JointState, '/joint_states', 10)
 
-        self.joint_trajectory_subscriber = self.create_subscription(
-            JointTrajectory,
-            'fourDOF_ARM_Chain_controller/joint_trajectory',
-            self.joint_trajectory_callback,
-            10
+        # self.joint_trajectory_subscriber = self.create_subscription(
+        #     JointTrajectory,
+        #     '/fourDOF_ARM_Chain_controller/follow_joint_trajectory', # Update the topic name here
+        #     self.joint_trajectory_callback,
+        #     10
+        # )
+        self.joint_trajectory_action_server = ActionServer(
+            self,
+            FollowJointTrajectory,
+            '/fourDOF_ARM_Chain_controller/follow_joint_trajectory',
+            self.execute_joint_trajectory_callback
         )
-
+        
     def __del__(self):
         self.cleanup_all()
 
@@ -230,16 +239,38 @@ class Dynamixel(Node):
         #Done setting up Dynamixel Motors
 
         self.get_logger().info("Dynamixel Motors have been successfully set up!")
+        self.get_logger().info("Moving to zero position")
+        self.setPosition(0, self.id_1)
+        self.setPosition(0, self.id_2)
+        # self.publish_joint_states()
 
-    def joint_trajectory_callback(self, msg):
-        # Extract joint positions, velocities, and efforts from the received message
-        for i, joint_name in enumerate(msg.joint_names):
-            if joint_name in self.joint_names:
-                dynamixel_id = self.dynamixel_ids[self.joint_names.index(joint_name)]
-                position = msg.points[0].positions[i]
-                # Send commands to the Dynamixel motor
-                self.get_logger().info('Setting position of Dynamixel ID %d to %f' % (dynamixel_id, self.angle_to_decimal(position)))
-                self.setPosition(self.angle_to_decimal(position), dynamixel_id)
+    def execute_joint_trajectory_callback(self, goal_handle):
+        # Extract joint trajectory from the goal
+        joint_trajectory = goal_handle.request.trajectory
+
+        # Execute the trajectory
+        result = self.execute_joint_trajectory(joint_trajectory)
+
+        # Send the result back to the action client (MoveIt!)
+        goal_handle.succeed()
+        return result
+
+    def execute_joint_trajectory(self, joint_trajectory):
+        result = FollowJointTrajectory.Result()
+        # Iterate through the trajectory points and execute them
+        for point in joint_trajectory.points:
+            # Extract joint positions from the trajectory point
+            for i, joint_name in enumerate(joint_trajectory.joint_names):
+                if joint_name in self.joint_names:
+                    dynamixel_id = self.dynamixel_ids[self.joint_names.index(joint_name)]
+                    position = point.positions[i]
+
+                    # Send commands to the Dynamixel motor
+                    self.get_logger().info('Setting position of Dynamixel ID %d to %f' % (dynamixel_id, self.angle_to_decimal(position)))
+                    self.setPosition(self.angle_to_decimal(position), dynamixel_id)
+
+        return result
+
 
     def publish_joint_states(self):
         # Retrieve current positions, velocities, and efforts from the Dynamixel motors
@@ -361,9 +392,9 @@ class Dynamixel(Node):
             if check:
                 break
             dxl_present_load, dxl_comm_result, dxl_error = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_LOAD)
-        self.servo_load_state = dxl_present_load
-        self.servo_load_state_ros.data = self.servo_load_state
-        self.servo_load_state_pub.publish(self.servo_load_state_ros)
+        # self.servo_load_state = dxl_present_load
+        # self.servo_load_state_ros.data = self.servo_load_state
+        # self.servo_load_state_pub.publish(self.servo_load_state_ros)
         return dxl_present_load
 
 
@@ -384,16 +415,16 @@ class Dynamixel(Node):
 
     def getPosition(self, id):
         # Read present position
-        dxl_present_position, dxl_comm_result, dxl_error = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_POSITION)
+        dxl_present_position, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_POSITION)
         while True:
             check = self.checkResults(dxl_comm_result, dxl_error)
             if check:
                 break
             time.sleep(0.05)
-            dxl_present_position, dxl_comm_result, dxl_error = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_POSITION)
-        self.servo_position_state = dxl_present_position
-        self.servo_position_state_ros.data = dxl_present_position
-        self.servo_position_state_pub.publish(self.servo_position_state_ros)
+            dxl_present_position, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_POSITION)
+        # self.servo_position_state = dxl_present_position
+        # self.servo_position_state_ros.data = dxl_present_position
+        # self.servo_position_state_pub.publish(self.servo_position_state_ros)
         return dxl_present_position
 
     def setPosition(self, position_cmd, id):
@@ -522,9 +553,9 @@ class Dynamixel(Node):
             if check:
                 break
             dxl_present_speed, dxl_comm_result, dxl_error = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_SPEED)
-        self.servo_speed_state = dxl_present_speed
-        self.servo_speed_state_ros.data = self.servo_speed_state
-        self.servo_speed_state_pub.publish(self.servo_speed_state_ros)
+        # self.servo_speed_state = dxl_present_speed
+        # self.servo_speed_state_ros.data = self.servo_speed_state
+        # self.servo_speed_state_pub.publish(self.servo_speed_state_ros)
         return dxl_present_speed
     def setSpeed(self, speed, id):
        # Write new moving speed
@@ -600,7 +631,7 @@ def main(args=None):
         rclpy.spin(dynamixel)  # Blocks execution until node is shutdown
     finally:
         # Ensure that the node and resources are properly cleaned up
-        dynamixel.destroy_node()
+        # dynamixel.destroy_node()
         rclpy.shutdown()
 
 
